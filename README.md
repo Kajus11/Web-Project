@@ -25,15 +25,15 @@ Ecommerce-WebSite/
 
 │  
 ├──> admin / # Admin dashboard (categories, products, users management)  
-│ ├── categories.php  
-│ ├── products.php  
-│ └── ...  
+│ ├──> categories.php  
+│ ├──> products.php  
+│ └──> ...  
 │  
-├── includes/ # Shared PHP components (functions, database connection)  
-│ ├── db.php  
-│ └── functions.php  
+├──> includes/ # Shared PHP components (functions, database connection)  
+│ ├──> db.php  
+│ └──> functions.php  
 │  
-├── uploads/ # Uploaded product images  
+├──> uploads/ # Uploaded product images  
 │  
 ├──> index.php # Homepage  
 ├──> products.php # Product list & details  
