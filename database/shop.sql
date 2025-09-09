@@ -121,7 +121,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `full_name`, `avatar`, `role`, `created_at`) VALUES
-(1, 'kajus', 'kajus.norkevic@gmail.com', '$2y$10$RO6/y9FxT.98V3ynU1zrVOPgK5yLO04TU0MS7R40zhlVjdNAzJBZm', 'Kajus Norkevicius', '1446939174_', 'admin', '2025-09-09 07:52:17');
+(1, 'kajus', 'uganda@gmail.com', '$2y$10$RO6/y9FxT.98V3ynU1zrVOPgK5yLO04TU0MS7R40zhlVjdNAzJBZm', 'Kajus uganda', '1446939174_', 'admin', '2025-09-09 07:52:17');
 
 --
 -- Indexes for dumped tables
