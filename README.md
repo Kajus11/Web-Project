@@ -24,7 +24,7 @@ The project includes user authentication, product management, and an admin panel
 Ecommerce-WebSite/
 
 │  
-├── ⚙️admin / # Admin dashboard (categories, products, users management)  
+├──> admin / # Admin dashboard (categories, products, users management)  
 │ ├── categories.php  
 │ ├── products.php  
 │ └── ...  
@@ -35,19 +35,19 @@ Ecommerce-WebSite/
 │  
 ├── uploads/ # Uploaded product images  
 │  
-├── index.php # Homepage  
-├── products.php # Product list & details  
-├── login.php # User login  
-├── register.php # User registration  
-├── profile.php # User profile  
-├── logout.php # Logout  
+├──> index.php # Homepage  
+├──> products.php # Product list & details  
+├──> login.php # User login  
+├──> register.php # User registration  
+├──> profile.php # User profile  
+├──> logout.php # Logout  
 │  
-├── init.php # Initialization (sessions, includes, etc.)  
-├── style.css # Custom CSS  
-├── script.js # Custom JavaScript  
+├──> init.php # Initialization (sessions, includes, etc.)  
+├──> style.css # Custom CSS  
+├──> script.js # Custom JavaScript  
 │  
-├── .gitignore # Ignored files/folders  
-└── README.md # Project documentation
+├──> .gitignore # Ignored files/folders  
+└──> README.md # Project documentation
 ```
 ---
 
