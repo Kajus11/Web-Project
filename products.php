@@ -4,6 +4,7 @@ session_start();
 $pageTitle = 'Product Details';
 include 'init.php';
 
+// Fetch the item from the database using itemid from GET
 $item = null;
 $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']) : 0;
 if ($itemid > 0) {
@@ -145,6 +146,7 @@ if (!empty($item)) {
   <hr class="custom-hr">
 
   <?php
+    // Fetch comments
     $stmt = $con->prepare("
       SELECT comments.*, users.username, users.avatar
       FROM comments

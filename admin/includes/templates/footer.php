@@ -17,6 +17,7 @@ function toggleDropdown() {
   icon.classList.toggle('rotate-180');
 }
 
+// Auto-hide alerts
 document.addEventListener('DOMContentLoaded', function() {
   setTimeout(function() {
     var alerts = document.querySelectorAll('.auto-hide');
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 3000);
 });
 
+// Confirm delete actions
 document.addEventListener('DOMContentLoaded', function() {
   const confirmButtons = document.querySelectorAll('.confirm');
   confirmButtons.forEach(button => {

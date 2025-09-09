@@ -1,8 +1,10 @@
 <?php
 
+	/*
 	================================================
 	== Category Page
 	================================================
+	*/
 
 	ob_start(); // Output Buffering Start
 
@@ -178,20 +180,24 @@
 				echo '<h1 class="text-3xl font-bold text-gray-900 mb-2">Insert Category</h1>';
 				echo '</div>';
 
+				// Get Variables From The Form
 				$name 		= $_POST['name'];
 				$desc 		= $_POST['description'];
 
+				// Check If Category Exist in Database
 				$check = checkItem("name", "categories", $name);
 
 				if ($check == 1) {
 					$theMsg = '<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg"><i class="fas fa-exclamation-triangle mr-2"></i>Sorry, this category already exists</div>';
 					redirectHome($theMsg, 'back');
 				} else {
+					// Insert Category Info In Database
 					$stmt = $con->prepare("INSERT INTO categories(name, description) VALUES(:zname, :zdesc)");
 					$stmt->execute(array(
 						'zname' => $name,
 						'zdesc' => $desc
 					));
+					// Echo Success Message
 					$theMsg = '<div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg"><i class="fas fa-check-circle mr-2"></i>' . $stmt->rowCount() . ' Category Added Successfully</div>';
 					$seconds = 3;
 					echo '<div class="bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded-lg"><i class="fas fa-info-circle mr-2"></i>Redirecting to categories page in ' . $seconds . ' seconds...</div>';
@@ -205,6 +211,7 @@
 
 		} elseif ($do == 'Edit') {
 
+			// Check If Get Request catid Is Numeric & Get Its Integer Value
 
 			$catid = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']) : 0;
 
@@ -216,9 +223,11 @@
 
 			$stmt->execute(array($catid));
 
+			// Fetch The Data
 
 			$cat = $stmt->fetch();
 
+			// The Row Count
 
 			$count = $stmt->rowCount();
 
@@ -295,13 +304,16 @@
 
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+				// Get Variables From The Form
 				$id 		= $_POST['catid'];
 				$name 		= $_POST['name'];
 				$desc 		= $_POST['description'];
 
+				// Update The Database With This Info
 				$stmt = $con->prepare("UPDATE categories SET name = ?, description = ? WHERE id = ?");
 				$stmt->execute(array($name, $desc, $id));
 
+				// Echo Success Message
 				$theMsg = '<div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg"><i class="fas fa-check-circle mr-2"></i>' . $stmt->rowCount() . ' Category Updated Successfully</div>';
 				$seconds = 3;
 				echo $theMsg;
@@ -319,6 +331,7 @@
 			echo '<h1 class="text-3xl font-bold text-gray-900 mb-2">Delete Category</h1>';
 			echo '</div>';
 
+			// Check If Get Request Catid Is Numeric & Get The Integer Value Of It
 			$catid = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']) : 0;
 
 			// Select All Data Depend On This ID

@@ -10,6 +10,7 @@
 
 		include 'init.php';
 
+		/* Start Dashboard Page */
 
 	$numUsers = 6; // Number Of Latest Users
 	$latestUsers = getLatest("*", "users", "id", $numUsers); // Latest Users Array
@@ -167,6 +168,7 @@
 
 		<?php
 
+		/* End Dashboard Page */
 
 		include $tpl . 'footer.php';
 

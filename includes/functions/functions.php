@@ -1,5 +1,9 @@
 <?php
 
+    /*
+        ** Get All Function v2.0
+        ** Function To Get All Records From Any Database Table (users, products, categories, comments)
+    */
 
     function getAllFrom($field, $table, $orderfield, $where = NULL, $and = NULL, $ordering = "DESC") {
 
@@ -52,6 +56,11 @@
 
 
 
+    /*
+    ** Title Function v1.0
+    ** Title Function That Echo The Page Title In Case The Page
+    ** Has The Variable $pageTitle And Echo Defult Title For Other Pages
+    */
 
     function getTitle() {
 

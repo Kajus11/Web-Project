@@ -1,5 +1,9 @@
 <?php
 
+    /*
+    ** Get All Function v2.0
+    ** Function To Get All Records From Any Database Table
+    */
 
     function getAllFrom($field, $table, $where = NULL, $and = NULL, $orderfield, $ordering = "DESC") {
 
@@ -16,6 +20,11 @@
     }
 
 
+    /*
+    ** Title Function v1.0
+    ** Title Function That Echo The Page Title In Case The Page
+    ** Has The Variable $pageTitle And Echo Defult Title For Other Pages
+    */
 
     function getTitle() {
 
@@ -32,7 +41,13 @@
         }
     }
 
+    /*
+    ** Home Redirect Function v2.0
+    ** This Function Accept Parameters
     ** $theMsg = Echo The Message [ Error | Success | Warning ]
+    ** $url = The Link You Want To Redirect To
+    ** $seconds = Seconds Before Redirecting
+    */
 
     function redirectHome($theMsg, $url = null, $seconds = 3) {
 
@@ -71,6 +86,13 @@
 
     }
 
+    /*
+    ** Check Products Function v1.0
+    ** Function to Check Item In Database [ Function Accept Parameters ]
+    ** $select = The Item To Select [ Example: user, item, category ]
+    ** $from = The Table To Select From [ Example: users, products, categories ]
+    ** $value = The Value Of Select [ Example: Osama, Box, Electronics ]
+    */
 
     function checkItem($select, $from, $value) {
 
@@ -86,6 +108,12 @@
 
     }
 
+    /*
+    ** Count Number Of Products Function v1.0
+    ** Function To Count Number Of Products Rows
+    ** $item = The Item To Count
+    ** $table = The Table To Choose From
+    */
 
     function countProducts($item, $table) {
 
@@ -99,6 +127,14 @@
 
     }
 
+    /*
+    ** Get Latest Records Function v1.0
+    ** Function To Get Latest Products From Database [ Users, Products, Comments ]
+    ** $select = Field To Select
+    ** $table = The Table To Choose From
+    ** $order = The Desc Ordering
+    ** $limit = Number Of Records To Get
+    */
 
     function getLatest($select, $table, $order, $limit = 5) {
 
@@ -114,7 +150,12 @@
 
     }
 
+    /*
+    ** Get Products with Search and Filter Function v1.0
+    ** Function to get products with search and category filter
+    ** $search = Search term for name/description
     ** $category_filter = Category ID to filter by
+    */
 
     function getProductsWithFilter($search = '', $category_filter = '') {
 
@@ -152,9 +193,11 @@
 
     }
 
+    /*
     ** Get Product by ID Function v1.0
     ** Function to get single product by ID
     ** $itemid = Product ID
+    */
 
     function getProductById($itemid) {
 
@@ -167,6 +210,11 @@
 
     }
 
+    /*
+    ** Insert Product Function v1.0
+    ** Function to insert new product
+    ** $data = Array with product data
+    */
 
     function insertProduct($data) {
 
@@ -187,7 +235,12 @@
 
     }
 
+    /*
+    ** Update Product Function v1.0
+    ** Function to update existing product
+    ** $data = Array with product data
     ** $id = Product ID
+    */
 
     function updateProduct($data, $id) {
 
@@ -201,7 +254,11 @@
 
     }
 
+    /*
+    ** Delete Product Function v1.0
+    ** Function to delete product
     ** $itemid = Product ID
+    */
 
     function deleteProduct($itemid) {
 
@@ -215,6 +272,12 @@
 
     }
 
+    /*
+    ** Validate Product Data Function v1.0
+    ** Function to validate product form data
+    ** $data = Array with form data
+    ** $image_data = Array with image data (optional)
+    */
 
     function validateProductData($data, $image_data = null) {
 
@@ -236,6 +299,7 @@
             $formErrors[] = 'You Must Choose the <strong>Category</strong>';
         }
 
+        // Image validation (only for new products)
         if ($image_data !== null) {
             $allowedExtensions = array("jpeg", "jpg", "png", "gif");
             
@@ -258,6 +322,11 @@
 
     }
 
+    /*
+    ** Handle Image Upload Function v1.0
+    ** Function to handle image upload
+    ** $image_data = $_FILES array for image
+    */
 
     function handleImageUpload($image_data) {
 
@@ -271,6 +340,12 @@
 
     }
 
+    /*
+    ** Display Success Message Function v1.0
+    ** Function to display styled success message
+    ** $message = Message to display
+    ** $icon = Icon class (optional)
+    */
 
     function displaySuccessMessage($message, $icon = 'fas fa-check-circle') {
 
@@ -280,9 +355,11 @@
 
     }
 
+    /*
     ** Display Error Messages Function v1.0
     ** Function to display styled error messages
     ** $errors = Array of error messages
+    */
 
     function displayErrorMessages($errors) {
 
@@ -294,6 +371,12 @@
 
     }
 
+    /*
+    ** Display Info Message Function v1.0
+    ** Function to display styled info message
+    ** $message = Message to display
+    ** $icon = Icon class (optional)
+    */
 
     function displayInfoMessage($message, $icon = 'fas fa-info-circle') {
 

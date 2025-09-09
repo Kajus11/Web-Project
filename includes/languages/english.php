@@ -4,6 +4,7 @@
 
         static $lang = array(
 
+            // Navbar Links
 
             'HOME_ADMIN'     => 'Home',
             'CATEGORIES'     => 'Categories',

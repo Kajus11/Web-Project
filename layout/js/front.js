@@ -2,6 +2,7 @@ $(function () {
 
 	'use strict';
 
+	// Switch Between Login & Signup
 
 	$('.login-page h1 span').click(function () {
 
@@ -13,6 +14,7 @@ $(function () {
 
 	});
 
+	// Trigger The Selectboxit
 
 	$("select").selectBoxIt({
 
@@ -20,6 +22,7 @@ $(function () {
 
 	});
 
+	// Hide Placeholder On Form Focus
 
 	$('[placeholder]').focus(function () {
 
@@ -33,6 +36,7 @@ $(function () {
 
 	});
 
+	// Add Asterisk On Required Field
 
 	$('input').each(function () {
 
@@ -44,6 +48,7 @@ $(function () {
 
 	});
 
+	// Confirmation Message On Button
 
 	$('.confirm').click(function () {
 

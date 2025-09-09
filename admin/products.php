@@ -7,9 +7,11 @@ if (isset($_SESSION['Username'])) {
     $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
     
     if ($do == 'Manage') {
+        // Get search parameters
         $search = isset($_GET['search']) ? $_GET['search'] : '';
         $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
         
+        // Get products using function
         $products = getProductsWithFilter($search, $category_filter);
         $cats = getAllFrom("*", "categories", "", "", "name");
 ?>
@@ -316,6 +318,7 @@ if (isset($_SESSION['Username'])) {
             echo "<div class='bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6'>";
             echo "<h2 class='text-xl font-semibold text-blue-800 mb-4'><i class='fas fa-plus mr-2'></i>Insert Product</h2>";
             
+            // Prepare data
             $data = array(
                 'name' => $_POST['name'],
                 'description' => $_POST['description'],
@@ -324,13 +327,16 @@ if (isset($_SESSION['Username'])) {
                 'category' => $_POST['category']
             );
             
+            // Validate data
             $formErrors = validateProductData($data, $_FILES['picture']);
             
             if (!empty($formErrors)) {
                 displayErrorMessages($formErrors);
             } else {
+                // Handle image upload
                 $data['image'] = handleImageUpload($_FILES['picture']);
                 
+                // Insert product
                 $result = insertProduct($data);
                 
                 if ($result > 0) {
@@ -468,6 +474,7 @@ if (isset($_SESSION['Username'])) {
                 'image' => $item && isset($item['image']) ? $item['image'] : '' // default to current image if exists
             );
             $newImageUploaded = isset($_FILES['picture']) && $_FILES['picture']['error'] === UPLOAD_ERR_OK && !empty($_FILES['picture']['name']);
+            // Validate data (with image if new uploaded)
             $formErrors = $newImageUploaded ? validateProductData($data, $_FILES['picture']) : validateProductData($data);
             if (!empty($formErrors)) {
                 displayErrorMessages($formErrors);

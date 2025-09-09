@@ -7,10 +7,12 @@
     }
     include 'init.php';
 
+    // Check If User Coming From HTTP Post Request
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['login'])) {
             $user = $_POST['username'];
             $pass = $_POST['password'];
+            // Check If The User Exist In Database
             $stmt = $con->prepare("SELECT id, username, password, avatar, role FROM users WHERE username = ?");
             $stmt->execute(array($user));
             $get = $stmt->fetch();
@@ -35,9 +37,11 @@
             $email     = $_POST['email'];
             $fullname  = $_POST['fullname'];
 
+               // Upload Variables
                $avatarName = isset($_FILES['pictures']['name']) ? $_FILES['pictures']['name'] : '';
                $avatarTmp  = isset($_FILES['pictures']['tmp_name']) ? $_FILES['pictures']['tmp_name'] : '';
 
+               // List Of Allowed File Types To Upload
                $avatarAllowedExtension = array("jpeg", "jpg", "png", "gif");
                $avatarExtension = '';
                if (!empty($avatarName)) {
@@ -74,10 +78,12 @@
                    } else {
                        $avatar = 'default.png';
                    }
+                   // Check If User Exist in Database
                    $check = checkItem("username", "users", $username);
                    if ($check == 1) {
                        $formErrors[] = 'Sorry This User Is Exists';
                    } else {
+                       // Insert Userinfo In Database
                        $stmt = $con->prepare("INSERT INTO users(username, password, email, full_name, avatar, role) VALUES(:zuser, :zpass, :zmail, :zname, :zpic, 'user')");
                        $stmt->execute(array(
                            'zuser' => $username,
@@ -86,6 +92,7 @@
                            'zname' => $fullname,
                            'zpic'  => $avatar
                        ));
+                       // Echo Success Message
                        $succesMsg = 'Congrats You Are Now Registered User';
                    }
                }

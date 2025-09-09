@@ -2,6 +2,7 @@ $(function () {
 
 	'use strict';
 
+	// Dashboard 
 
 	$('.toggle-info').click(function () {
 
@@ -19,6 +20,7 @@ $(function () {
 
 	});
 
+	// Trigger The Selectboxit
 
 	$("select").selectBoxIt({
 
@@ -26,6 +28,7 @@ $(function () {
 
 	});
 
+	// Hide Placeholder On Form Focus
 
 	$('[placeholder]').focus(function () {
 
@@ -39,6 +42,7 @@ $(function () {
 
 	});
 
+	// Add Asterisk On Required Field
 
 	$('input').each(function () {
 
@@ -50,6 +54,7 @@ $(function () {
 
 	});
 
+	// Convert Password Field To Text Field On Hover
 
 	var passField = $('.password');
 
@@ -63,6 +68,7 @@ $(function () {
 
 	});
 
+	// Confirmation Message On Button
 
 	$('.confirm').click(function () {
 
@@ -70,6 +76,7 @@ $(function () {
 
 	});
 
+	// Category View Option
 
 	$('.cat h3').click(function () {
 
@@ -93,6 +100,7 @@ $(function () {
 
 	});
 
+	// Show Delete Button On Child Cats
 
 	$('.child-link').hover(function () {
 

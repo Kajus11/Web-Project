@@ -9,6 +9,7 @@
         exit();
     }
 
+    // Load current user
     $getUser = $con->prepare("SELECT * FROM users WHERE username = ?");
     $getUser->execute([$sessionUser]);
     $info = $getUser->fetch();

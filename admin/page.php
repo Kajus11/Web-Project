@@ -1,9 +1,12 @@
 <?php
 
+	/*
 		Categories => [ Manage | Edit | Update | Add | Insert | Delete | Stats ]
+	*/
 
 	$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 
+	// If The Page Is Main Page
 
 	if ($do == 'Manage') {
 

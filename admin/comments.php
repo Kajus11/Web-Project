@@ -1,9 +1,11 @@
 <?php
 
+	/*
 	================================================
 	== Manage Comments Page
 	== You Can Edit | Delete | Approve Comments From Here
 	================================================
+	*/
 
 	ob_start(); // Output Buffering Start
 
@@ -17,15 +19,19 @@
 
 		$do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
 
+		// Start Manage Page
 
 		if ($do == 'Manage') { // Manage Members Page
 
+			// Select All Users Except Admin 
 
 			$stmt = $con->prepare("SELECT comments.*, products.name AS product_name, users.username AS member_name FROM comments INNER JOIN products ON products.id = comments.product_id INNER JOIN users ON users.id = comments.user_id ORDER BY comments.id DESC");
 
+			// Execute The Statement
 
 			$stmt->execute();
 
+			// Assign To Variable 
 
 			$comments = $stmt->fetchAll();
 
@@ -84,6 +90,7 @@
 
 			echo "<div class='container'>";
 
+				// Check If Get Request comid Is Numeric & Get The Integer Value Of It
 
 				$comid = isset($_GET['comid']) && is_numeric($_GET['comid']) ? intval($_GET['comid']) : 0;
 
@@ -120,6 +127,7 @@
 			echo "<h1 class='text-center'>Approve Comment</h1>";
 			echo "<div class='container'>";
 
+				// Check If Get Request comid Is Numeric & Get The Integer Value Of It
 
 				$comid = isset($_GET['comid']) && is_numeric($_GET['comid']) ? intval($_GET['comid']) : 0;
 

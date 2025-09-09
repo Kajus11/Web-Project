@@ -7,12 +7,15 @@
 <?php
 if (isset($_GET['pageid']) && is_numeric($_GET['pageid'])) {
     $category = intval($_GET['pageid']);
+    // Pagination logic
     $perPage = 12;
     $page = isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0 ? intval($_GET['page']) : 1;
     $offset = ($page - 1) * $perPage;
+    // Get total count for this category
     $stmtCount = $con->prepare("SELECT COUNT(*) FROM products WHERE category_id = ?");
     $stmtCount->execute([$category]);
     $totalProducts = $stmtCount->fetchColumn();
+    // Fetch only products for this page/category
     $stmt = $con->prepare("SELECT * FROM products WHERE category_id = :category ORDER BY id DESC LIMIT :offset, :perPage");
     $stmt->bindValue(':category', $category, PDO::PARAM_INT);
     $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);

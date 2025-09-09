@@ -15,6 +15,7 @@
         $sessionAvatar = $_SESSION['avatar'];
     }
 
+    // Routes
 
     $tpl     = 'includes/templates/'; // Template Directory
     $lang     = 'includes/languages/'; // Language Directory
@@ -22,6 +23,7 @@
     $css     = 'layout/css/'; // Css Directory
     $js     = 'layout/js/'; // Js Directory
 
+    // Include The Important Files
 
     include $func . 'functions.php';
     include $lang . 'english.php';

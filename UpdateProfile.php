@@ -22,17 +22,20 @@ include 'init.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // Get Variables From The Form
     $id     = $_POST['userid'];
     $user     = $_POST['username'];
     $email     = $_POST['email'];
     $name     = $_POST['full_name'];
 
+    // Password Trick
     if (!empty($_POST['newpassword'])) {
         $pass = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
     } else {
         $pass = $_POST['oldpassword'];
     }
 
+    // Validate The Form
     $formErrors = array();
 
     if (strlen($user) < 4) {
@@ -54,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $formErrors[] = 'Please enter a <strong>valid email address</strong>';
     }
 
+    // Display Errors
     if (!empty($formErrors)) {
         echo '<div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-6">';
         echo '<div class="flex items-center mb-4">';
@@ -96,9 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo '</div>';
             echo '</div>';
         } else {
+            // Update The Database With This Info
             $stmt = $con->prepare("UPDATE users SET username = ?, email = ?, full_name = ?, password = ? WHERE id = ?");
             $stmt->execute(array($user, $email, $name, $pass, $id));
 
+            // Echo Success Message
             echo '<div class="bg-green-50 border border-green-200 rounded-xl p-6">';
             echo '<div class="flex items-center">';
             echo '<i class="fas fa-check-circle text-green-600 mr-3"></i>';
@@ -117,6 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo '</div>';
             echo '</div>';
 
+            // Auto redirect with modern animation
             echo '<script>';
             echo 'let countdown = ' . $seconds . ';';
             echo 'const countdownElement = document.querySelector(".countdown");';

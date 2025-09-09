@@ -5,10 +5,13 @@
     $pageTitle = 'Homepage - eCommerce Store';
     include 'init.php';
 
+    // Pagination logic
     $perPage = 12;
     $page = isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0 ? intval($_GET['page']) : 1;
     $offset = ($page - 1) * $perPage;
+    // Get total count
     $totalProducts = countProducts('id', 'products');
+    // Fetch only products for this page
     $allProducts = [];
     $stmt = $con->prepare("SELECT * FROM products ORDER BY id DESC LIMIT :offset, :perPage");
     $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);

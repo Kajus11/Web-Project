@@ -1,3 +1,4 @@
+/* Start Main Rulez */
 
 body {
 	background-color: #F4F4F4;
@@ -20,7 +21,9 @@ body {
 	border-left: 5px solid #080;
 }
 
+/* End Main Rulez */
 
+/* Start Login Form */
 
 .login {
 	width: 300px;
@@ -43,7 +46,9 @@ body {
 	background-color: #008dde;
 }
 
+/* End Login Form */
 
+/* Start Bootstrap Edits */
 
 .navbar {
 	border-radius: 0;
@@ -89,7 +94,9 @@ body {
 	position: relative;
 }
 
+/* End Bootstrap Edits */
 
+/* Start Dashboard Page */
 
 .home-stats .stat {
 	padding: 20px;
@@ -212,7 +219,9 @@ body {
 	border-width: 15px;
 }
 
+/* End Dashboard Page */
 
+/* Start Members Page */
 
 h1 {
 	font-size: 55px;
@@ -256,7 +265,9 @@ h1 {
 	margin-left: 5px;
 }
 
+/* End Members Page */
 
+/* Start Category Page */
 
 .categories .panel-heading {
 	color: #959595;
@@ -382,7 +393,10 @@ h1 {
 	display: none;
 }
 
+/* End Category Page */
 
+/* Footer Begin */
+/*
 footer{
     background-color: #191E22;
     color: #6A6E71;
@@ -410,3 +424,5 @@ footer ul li{
     height: 24px;
     cursor: pointer;
 }
+*/
+/* Footer End */

@@ -9,11 +9,13 @@
 
 	include 'init.php';
 
+	// Check If User Coming From HTTP Post Request
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$username = $_POST['user'];
 		$password = $_POST['pass'];
+		// Check If The User Exist In Database
 		$stmt = $con->prepare("SELECT id, username, password, role FROM users WHERE username = ? AND role = 'admin' LIMIT 1");
 		$stmt->execute(array($username));
 		$row = $stmt->fetch();

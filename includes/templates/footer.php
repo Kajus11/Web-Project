@@ -1,5 +1,6 @@
                 </div>
             <?php
+            // Close conditional layout structure
             $currentPage = basename($_SERVER['PHP_SELF']);
             $showSidebar = ($currentPage === 'index.php' || $currentPage === 'categories.php');
             if ($showSidebar): ?>
@@ -21,6 +22,7 @@
         <!-- JavaScript for dropdown functionality -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality
             const dropdowns = document.querySelectorAll('.dropdown');
             dropdowns.forEach(dropdown => {
                 const button = dropdown.querySelector('button');
@@ -30,6 +32,7 @@
                     menu.classList.toggle('hidden');
                 });
 
+                // Close dropdown when clicking outside
                 document.addEventListener('click', (e) => {
                     if (!dropdown.contains(e.target)) {
                         menu.classList.add('hidden');
@@ -37,6 +40,7 @@
                 });
             });
 
+            // Auto-hide alerts
             setTimeout(function() {
                 var alerts = document.querySelectorAll('.auto-hide');
                 alerts.forEach(function(alert) {
